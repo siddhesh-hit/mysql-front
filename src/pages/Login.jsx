@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 import { postApi } from "../hooks/apiFunction";
 import "../App.css";
 import { API } from "../config";
 
 const Login = () => {
   const navigate = useNavigate();
+  const [, setCookie] = useCookies(["jwt"]); // eslint-disable-line no-unused-vars
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -14,6 +16,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await postApi(`${API.localHost}/user/login`, values);
+    // const res = await axios.post(`${API.localHost}/user/login`, { ...values });
     console.log(res);
 
     if (res && res.data) {
@@ -21,8 +24,9 @@ const Login = () => {
       console.log("Login successful! Redirecting...");
       if (res.data.token) {
         localStorage.setItem("token", res.data.token);
+        setCookie("jwt", res.data.token, { path: "/" });
       }
-      navigate("/payment");
+      navigate("/dashboard");
     } else {
       // Handle incorrect login (e.g., show an error message)
       alert("Login failed. Please try again.");

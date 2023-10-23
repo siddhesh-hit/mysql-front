@@ -1,18 +1,27 @@
-// import Navbar from "./Navbar";
-import Channel from "./Channel";
-import Medium from "./Medium";
-import List from "./List";
-import ListMedium from "./ListMedium";
+import { lazy, Suspense } from "react";
+
+const Channel = lazy(() => import("./Channel"));
+const Medium = lazy(() => import("./Medium"));
+const List = lazy(() => import("./List"));
+const ListMedium = lazy(() => import("./ListMedium"));
+const Loading = lazy(() => import("../Loader"));
 
 const Container = () => {
   return (
     <>
-      {/* <Navbar /> */}
       <section className="h-screen grid grid-cols-[60px_170px_215px_1fr] overflow-hidden">
-        <Channel />
-        <Medium />
-        <List />
-        <ListMedium />
+        <Suspense fallback={<Loading />}>
+          <Channel />
+        </Suspense>
+        <Suspense fallback={<Loading />}>
+          <Medium />
+        </Suspense>
+        <Suspense fallback={<Loading />}>
+          <List />
+        </Suspense>
+        <Suspense fallback={<Loading />}>
+          <ListMedium />
+        </Suspense>
       </section>
     </>
   );

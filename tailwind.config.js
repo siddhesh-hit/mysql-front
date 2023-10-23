@@ -7,6 +7,7 @@ export default {
         lightShade: "#949494",
         dollar: "#00d108",
         button: "#2f9200",
+        homeBack: "#fbfaf5",
       },
     },
   },

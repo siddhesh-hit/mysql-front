@@ -2,3 +2,47 @@
     background: -webkit-linear-gradient(to right, #F64F59, #C471ED, #12C2E9);
     background: linear-gradient(to right, #F64F59, #C471ED, #12C2E9);
 }
+
+.page-header {
+    margin-top: 0px;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    background: #fff;
+    border-bottom: 2px solid #e0f0fe;
+    position: relative;
+}
+
+.page-header .page-title {
+    font-size: 24px;
+    padding: 0;
+    margin-top: 20px;
+    color: #000000;
+    font-weight: 500;
+    background: #fff;
+}
+
+.page-header:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: #000000;
+    border-right: 3px solid #fff;
+    bottom: -2px;
+    left: 0;
+}
+
+.page-content1 p {
+    line-height: 1.7;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+h1.page-title {
+    font-size: 25px;
+    padding: 0;
+    margin-top: 20px;
+    color: #000000;
+    font-weight: 500;
+}
