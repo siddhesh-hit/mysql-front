@@ -9,7 +9,7 @@ const Loading = lazy(() => import("../Loader"));
 const Container = () => {
   return (
     <>
-      <section className="h-screen grid grid-cols-[60px_170px_215px_1fr] overflow-hidden">
+      <section className="h-screen grid grid-cols-[80px_170px_260px_1fr] overflow-hidden">
         <Suspense fallback={<Loading />}>
           <Channel />
         </Suspense>

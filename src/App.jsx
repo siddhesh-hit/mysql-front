@@ -4,6 +4,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import ProtectedRoute from "./ProtectedRoute";
+const Footer = lazy(() => import("./components/Common/Footer"));
+const Navbar = lazy(() => import("./components/Common/Navbar"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Homepage = lazy(() => import("./pages/Homepage"));
 const Login = lazy(() => import("./pages/Login"));
@@ -19,11 +21,13 @@ function App() {
       <ToastContainer />
       <Router>
         <Suspense fallback={<Loading />}>
+          <Navbar />
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route
+              // path="/dashboard/:channel/:medium/:list"
               path="/dashboard"
               element={<ProtectedRoute element={<Dashboard />} />}
             />
@@ -37,6 +41,7 @@ function App() {
             />
             <Route path="/tnc" element={<ProtectedRoute element={<TnC />} />} />
           </Routes>
+          <Footer />
         </Suspense>
       </Router>
     </>

@@ -9,6 +9,7 @@ axiosInstance.interceptors.request.use(
   (config) => {
     // Get the token from your desired source (localStorage, etc.)
     const token = localStorage.getItem("token"); // Replace with your actual token
+
     if (token) {
       config.headers["Authorization"] = `Bearer ${token}`;
     }
